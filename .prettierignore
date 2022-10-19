@@ -1,0 +1,5 @@
+/node_modules
+.history
+**/registry.js
+package-lock.json
+package.json
