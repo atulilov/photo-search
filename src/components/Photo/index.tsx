@@ -33,7 +33,7 @@ const GRID_TEMPLATE = {
 export default function Photo() {
   const [data, setData] = useState<PhotoResult>();
   const [page, setPage] = useState<number>(1);
-  const [goToPage, setGoToPage] = useState<number | undefined | null>();
+  const [goToPage, setGoToPage] = useState<number | undefined>();
   const [searchValueResult, setSearchValueResult] = useState("");
   const breakpoint = useBreakpoint();
   const pages = data && data?.totalHits / data?.hits?.length;

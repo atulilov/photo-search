@@ -83,7 +83,7 @@ const PhotoSearch: FC<PhotoSearchProps> = ({
             colorScheme="teal"
             spinner={<BeatLoader size={8} color="white" />}
             type="submit">
-            Submit
+            Go
           </Button>
         </Box>
       </Center>

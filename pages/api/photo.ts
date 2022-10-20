@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PhotoResponse, PhotoResult } from "./photo.types";
 
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PhotoResponse>
