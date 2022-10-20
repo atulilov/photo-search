@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <VStack>
-          <Container maxW="10xl" centerContent mt={10}>
+          <Container maxW="9xl" centerContent mt={10}>
             <Heading as="h1" size="xl">
               Photo Search
             </Heading>

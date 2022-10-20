@@ -1,4 +1,4 @@
-import { BaseSyntheticEvent, ChangeEvent, FC, useState } from "react";
+import { BaseSyntheticEvent, ChangeEvent, FC, useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -15,11 +15,13 @@ interface PhotoSearchProps {
   setData: (data: PhotoResult) => void;
   // eslint-disable-next-line no-unused-vars
   setSearchValueResult: (data: string) => void;
+  page: number;
 }
 
 const PhotoSearch: FC<PhotoSearchProps> = ({
   setData,
-  setSearchValueResult
+  setSearchValueResult,
+  page
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -33,7 +35,7 @@ const PhotoSearch: FC<PhotoSearchProps> = ({
   const getPhotoDataAsync = async () => {
     setIsLoading(true);
     const response: PhotoResult = await fetch(
-      `api/photo/?q=${searchValue}&page=${1}&perpage=${100}`
+      `api/photo/?q=${searchValue}&page=${page}&perpage=${50}`
     )
       .then(response => {
         return response.json();
@@ -50,6 +52,11 @@ const PhotoSearch: FC<PhotoSearchProps> = ({
     setData(response);
     setSearchValueResult(searchValue);
   };
+
+  useEffect(() => {
+    if (!searchValue?.trim?.()) return;
+    getPhotoDataAsync();
+  }, [page]);
 
   const handleSubmit = (e: BaseSyntheticEvent) => {
     e.preventDefault();
