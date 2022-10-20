@@ -6,7 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PhotoResponse>
 ) {
-  if (req.method === "POST") {
+  if (req.method !== "GET") {
     res.status(404).json({ error: "this method does not exist" });
     return;
   }
