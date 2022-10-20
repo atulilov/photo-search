@@ -46,7 +46,7 @@ const PhotoCard: FC<PhotoCardProps> = ({
       </Box>
       <Flex alignItems="center" justifyContent="space-between" my={2}>
         {user && (
-          <Text fontSize="md" mr="5px">
+          <Text fontSize="md" mr="5px" data-testid="user">
             By {user}
           </Text>
         )}

@@ -9,7 +9,7 @@ export interface Photo {
   webformatURL: string;
   webformatWidth: number;
   webformatHeight: number;
-  largeImageURL: number;
+  largeImageURL: string;
   imageWidth: number;
   imageHeight: number;
   imageSize: number;
