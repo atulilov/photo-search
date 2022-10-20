@@ -7,7 +7,7 @@ import cn from "classnames";
 import { PhotoCardProps } from "./PhotoCard.types";
 import { StyledBox } from "./PhotoCard.style";
 
-const ioProps = { rootMargin: "0px", threshold: "0.3" };
+const ioProps = { rootMargin: "0px", threshold: 0.3 };
 
 const PhotoCard: FC<PhotoCardProps> = ({
   previewURL,

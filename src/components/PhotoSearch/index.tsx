@@ -1,4 +1,10 @@
-import { BaseSyntheticEvent, ChangeEvent, FC, useEffect, useState } from "react";
+import {
+  BaseSyntheticEvent,
+  ChangeEvent,
+  FC,
+  useEffect,
+  useState
+} from "react";
 import {
   Box,
   Button,
@@ -9,18 +15,12 @@ import {
 } from "@chakra-ui/react";
 import { BeatLoader } from "react-spinners";
 import { PhotoResult } from "pages/api/photo.types";
-
-interface PhotoSearchProps {
-  // eslint-disable-next-line no-unused-vars
-  setData: (data: PhotoResult) => void;
-  // eslint-disable-next-line no-unused-vars
-  setSearchValueResult: (data: string) => void;
-  page: number;
-}
+import { PhotoSearchProps } from "./PhotoSearch.types";
 
 const PhotoSearch: FC<PhotoSearchProps> = ({
   setData,
   setSearchValueResult,
+  reset,
   page
 }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,6 +64,7 @@ const PhotoSearch: FC<PhotoSearchProps> = ({
       return setIsInvalidMessage("Please enter some text");
 
     getPhotoDataAsync();
+    reset();
   };
   return (
     <form onSubmit={handleSubmit}>

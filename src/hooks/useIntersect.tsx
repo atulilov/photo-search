@@ -1,10 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 
-const useIntersect = ({ root = null, rootMargin, threshold = 0 }) => {
-  const [entry, updateEntry] = useState({});
-  const [node, setNode] = useState(null);
+interface UseIntersectProps {
+  rootMargin: string;
+  threshold: number | number[] | undefined;
+  root?: Document | Element | null | undefined;
+}
 
-  const observer = useRef(null);
+const useIntersect = ({
+  root = null,
+  rootMargin,
+  threshold = 0
+}: UseIntersectProps) => {
+  const [entry, updateEntry] = useState<any>({});
+  const [node, setNode] = useState<any>(null);
+
+  const observer = useRef<any>(null);
 
   useEffect(() => {
     if (observer.current) observer.current.disconnect();
